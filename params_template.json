@@ -1,0 +1,10 @@
+{
+	"twilio_account_sid" : "YOUR SID",
+	"twilio_auth_token" : "YOUR AUTH TOKEN",
+	"twilio_number" : "+1XXXXXXXXXX",
+	"gmail_account" : "GMAIL TO USE FOR SENDING REMINDERS",
+	"gmail_pass" : "THE PASSWORD",
+	"admin_email" : "EMAIL TO RECIEVE ERROR MSG",
+	"time_zone" : "EST",
+	"base_msg" : "This a reminder for your appointment for "
+}
