@@ -1,2 +1,5 @@
 params.json
 client_secret.json
+.credentials
+.ipynb_checkpoints
+*.ipynb
