@@ -33,7 +33,7 @@ SCOPES = ['https://www.googleapis.com/auth/calendar']
 CLIENT_SECRET_FILE = "client_secret.json"
 APPLICATION_NAME = 'Dr-Sivan-Reminder'
 
-PARAMS = json.load(open("params.json"))
+PARAMS = json.load(open(os.path.dirname(os.path.realpath(__file__)) + "/params.json"))
 if not PARAMS["admin_email"]:
     PARAMS["admin_email"] = PARAMS["gmail_account"]
 

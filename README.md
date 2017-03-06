@@ -23,12 +23,12 @@ This is particularly useful for professional services pratctitioners (dentists, 
 1. setup a linux server (using amazon linux here):
 	Clone repository  
 	`$ git clone https://github.com/oinbar/appointment-reminder.git`  
-	Update apt-get
-	`$ sudo apt-get -y update`
-	Install pip
-	`$ sudo apt-get -y install python-pip`
-	Install python dependecies
-	`$ sudo pip install httplib2 pytz python-dateutil google-api-python-client twilio`
+	Update apt-get  
+	`$ sudo apt-get -y update`  
+	Install pip  
+	`$ sudo apt-get -y install python-pip`  
+	Install python dependecies  
+	`$ sudo pip install httplib2 pytz python-dateutil google-api-python-client twilio`  
 
 
 2. Make sure you have python 2.7
@@ -51,22 +51,25 @@ This is particularly useful for professional services pratctitioners (dentists, 
 
 6. Run the application as a cronjob. By default the application will look for the next 10 events.\n
 	crontab -e  
-	add the following line (to run hourly): 
-		`$ 0 * * * * python /path/to/application.py`
+	add the following line (to run hourly):  
+		`$ 0 * * * * python /path/to/application.py`  
 	save and close the file (check cronjob is registered with cronjob -l)  
 
 ##Usage:
 
-Google calendar has no formal UI to house the parameters necessary for this application. So, the event description field must be used instead, where "pseudo json" will be the accepted format. A single reminders to be placed in the description field should look something like this (curly braces included, no quotes):
+Google calendar has no formal UI to house the parameters necessary for this application. So, the event description field must be used instead, where "pseudo json" will be the accepted format. A single reminders to be placed in the description field should look something like this (curly braces included, no quotes, colon immediately following keyword):
 
 `{  
 	hours: 24,  
 	sms: (XXX)XXX-XXXX,  
 	email: johnsmith@myemail.com,  
 }`
+Valid parameters: hours, sms, email
 
 The application will then parse the description for such "json" objects, where each object serves as a single reminder to be triggered once at the number of hours specified before the event's start time. If an email address is present, an email will be sent, and if an sms number is present an sms will be sent. To send multiple notifications (such as at different times) simply add additional json objects with the desired parameters.
 
-TODO add calling
-TODO dont overwrite entire description...
+TODO add calling  
+TODO add custom msg  
+TODO send sms through twiml to allow number aliasing  
+TODO dont overwrite entire description (allow actual description to be present)    
 
